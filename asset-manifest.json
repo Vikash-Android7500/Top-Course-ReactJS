@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Top-Course-ReactJS/static/css/main.acd7ff39.css",
-    "main.js": "/Top-Course-ReactJS/static/js/main.bedd6541.js",
+    "main.js": "/Top-Course-ReactJS/static/js/main.09614886.js",
     "index.html": "/Top-Course-ReactJS/index.html",
     "main.acd7ff39.css.map": "/Top-Course-ReactJS/static/css/main.acd7ff39.css.map",
-    "main.bedd6541.js.map": "/Top-Course-ReactJS/static/js/main.bedd6541.js.map"
+    "main.09614886.js.map": "/Top-Course-ReactJS/static/js/main.09614886.js.map"
   },
   "entrypoints": [
     "static/css/main.acd7ff39.css",
-    "static/js/main.bedd6541.js"
+    "static/js/main.09614886.js"
   ]
 }
