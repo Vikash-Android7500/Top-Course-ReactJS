@@ -1,62 +1,60 @@
 import React from "react";
-import Navbar from  "./components/Navbar";
-import Cards from "./components/Cards"
-import Filter from "./components/Filter"
-import { apiUrl, filterData  } from "./data";
-import { useState,useEffect } from "react";
+import Navbar from "./components/Navbar";
+import Cards from "./components/Cards";
+import Filter from "./components/Filter";
+import { apiUrl, filterData } from "./data";
+import { useState, useEffect } from "react";
 import Spinner from "./components/Spinner";
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 
-
-
-const App = () => { 
+const App = () => {
   const [courses, setCourses] = useState(null);
   const [loading, setLoading] = useState(true);
   const [category, setCategory] = useState(filterData[0].title);
 
   async function fetchData() {
     setLoading(true);
-    try{
+    try {
       const response = await fetch(apiUrl);
       const output = await response.json();
-      //output -> 
+      //output ->
       toast("Back online");
       setCourses(output.data);
-    }
-    catch(errer) {
-      return  toast("Network Not Found");
+    } catch (errer) {
+      return toast("Network Not Found");
     }
     setLoading(false);
   }
 
   useEffect(() => {
     fetchData();
-  }, [])
-  
+  }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-bgDark2">
-      <div>
-        <Navbar/>
-      </div>
-      <div className="bg-bgDark2">
-        <div>
-          <Filter 
-          filterData={filterData}
+    <main className="min-h-screen flex flex-col bg-bgDark2">
+      <>
+        <Navbar />
+      </>
+      <section className="bg-bgDark2">
+        <section>
+          <Filter
+            filterData={filterData}
             category={category}
             setCategory={setCategory}
           />
-        </div>
-        <div className="w-11/12 max-w-[1200px] 
-        mx-auto flex flex-wrap justify-center items-center min-h-[50vh]">
-        {
-            loading ? (<Spinner/>) : (<Cards courses={courses} category={category}/>)
-          }
-        </div>
-      </div>
-
-
-    </div>
+        </section>
+        <section
+          className="w-11/12 max-w-[1200px] 
+        mx-auto flex flex-wrap justify-center items-center min-h-[50vh]"
+        >
+          {loading ? (
+            <Spinner />
+          ) : (
+            <Cards courses={courses} category={category} />
+          )}
+        </section>
+      </section>
+    </main>
   );
 };
 
