@@ -18,10 +18,10 @@ const App = () => {
       const response = await fetch(apiUrl);
       const output = await response.json();
       //output ->
-      toast("Back online");
+      toast.success("Back online");
       setCourses(output.data);
     } catch (errer) {
-      return toast("Network Not Found");
+      return toast.error("Network Not Found");
     }
     setLoading(false);
   }
