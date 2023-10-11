@@ -1,7 +1,7 @@
 import React from "react";
 // import {FcLinux, FcLikePlaceholder } from "react-icons/fc";
 import { AiFillLike, AiOutlineLike } from "react-icons/ai";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 const Card = (props) => {
   let course = props.course;
@@ -13,7 +13,7 @@ const Card = (props) => {
     if (likedCourses.includes(course.id)) {
       //pehle se like hua pada tha
       setLikedCourses((prev) => prev.filter((cid) => cid !== course.id));
-      toast.warning("Un Liked Course");
+      toast.error("Un Liked Course");
     } else {
       //pehle se like nahi hai ye course
       //insert karna h ye course liked courses me
